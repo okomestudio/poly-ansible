@@ -44,6 +44,9 @@
   :group 'innermodes
   :type 'object)
 
+(define-hostmode poly-ansible--yaml-ts-hostmode
+  :mode 'yaml-ts-mode)
+
 ;;;###autoload (autoload 'poly-ansible-mode "poly-ansible")
 (define-polymode poly-ansible-mode
   :hostmode 'pm-host/yaml
@@ -52,6 +55,13 @@
   (ansible 1)
   (ansible-doc-mode 1))
 
+;;;###autoload (autoload 'poly-ansible-mode "poly-ansible")
+(define-polymode poly-ansible-ts-mode
+  :hostmode 'poly-ansible--yaml-ts-hostmode
+  :innermodes '(pm-inner/jinja2)
+
+  (ansible 1)
+  (ansible-doc-mode 1))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist
